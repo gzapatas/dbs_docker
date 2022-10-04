@@ -1,0 +1,16 @@
+version: "2.1"
+
+services:
+  main:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    labels:
+      svc: "live.mssql"
+    restart: always
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=123456@@
+      - MSSQL_PID=Express
+    volumes:
+      - mssql-datavolume:/var/lib/mysql
+    ports:
+      - 1433:1433

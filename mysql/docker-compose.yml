@@ -1,0 +1,20 @@
+version: "2.1"
+
+services:
+  main:
+    image: mysql:8
+    labels:
+      svc: "live.mysql"
+    restart: always
+    command: >
+      --default-authentication-plugin=mysql_native_password
+      --max_connections=1000
+      --innodb_file_per_table
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456@@
+    volumes:
+      - ./timezone.txt:/etc/localtime:ro
+      - ./init:/docker-entrypoint-initdb.d:ro
+      - mysql-datavolume:/var/lib/mysql
+    ports:
+      - 3306:3306

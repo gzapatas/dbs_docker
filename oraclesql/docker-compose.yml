@@ -1,0 +1,14 @@
+version: "2.1"
+
+services:
+  main:
+    image: gvenzl/oracle-xe:21-slim 
+    labels:
+      svc: "live.oracle"
+    restart: always
+    environment:
+      - ORACLE_PASSWORD=123456@@
+    volumes:
+      - mssql-datavolume:/var/lib/mysql
+    ports:
+      - 1521:1521
