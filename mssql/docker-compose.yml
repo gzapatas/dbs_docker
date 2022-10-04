@@ -14,3 +14,6 @@ services:
       - mssql-datavolume:/var/lib/mysql
     ports:
       - 1433:1433
+
+volumes:
+  mssql-datavolume:
