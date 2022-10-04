@@ -7,6 +7,7 @@ services:
       svc: "live.oracle"
     restart: always
     environment:
+      - ORACLE_DATABASE=sa
       - ORACLE_PASSWORD=123456@@
     volumes:
       - oraclesql-datavolume:/var/lib/mysql
