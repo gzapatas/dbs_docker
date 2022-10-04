@@ -7,7 +7,7 @@ services:
       svc: "live.postgres"
     restart: always
     environment:
-      - POSTGRES_USER=sa
+      - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=123456@@
       - PGDATA=/var/lib/postgresql/data
       - POSTGRES_DB=northwind
